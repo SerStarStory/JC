@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.serstarstory.AHController">
+   <children>
+      <ChoiceBox fx:id="select" layoutX="158.0" layoutY="14.0" prefHeight="25.0" prefWidth="192.0" />
+      <Label fx:id="desc" layoutX="14.0" layoutY="56.0" prefHeight="17.0" prefWidth="451.0" text="Описания">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
+      <AnchorPane fx:id="req" layoutX="14.0" layoutY="81.0" prefHeight="83.0" prefWidth="336.0">
+         <children>
+            <Label layoutX="1.0" layoutY="25.0" prefHeight="17.0" prefWidth="334.0" text="http://gravit.pro/auth.php?username=%login%&amp;password=%password%&amp;ip=%ip%">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Label>
+            <TextField fx:id="RU" prefHeight="25.0" prefWidth="336.0" promptText="url к которому юудет идти запрос" />
+            <TextField fx:id="RM" layoutX="1.0" layoutY="42.0" prefHeight="25.0" prefWidth="334.0" promptText="Маска ответа(default:&quot;OK:(?&lt;username&gt;.+)&quot;)" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="next" layoutX="727.0" layoutY="561.0" mnemonicParsing="false" text="Дальше" />
+      <AnchorPane fx:id="mys" layoutX="14.0" layoutY="161.0" prefHeight="200.0" prefWidth="334.0">
+         <children>
+            <TextField fx:id="DN" layoutY="2.0" promptText="Имя базы даных(бд)" />
+            <TextField fx:id="DU" layoutY="27.0" promptText="пользователь бд" />
+            <TextField fx:id="PU" layoutX="185.0" layoutY="27.0" promptText="пароль пользователя" />
+            <TextField fx:id="DIP" layoutY="52.0" promptText="ип адрес дб" />
+            <TextField fx:id="DQ" layoutY="127.0" prefHeight="25.0" prefWidth="334.0" promptText="sql запрос" />
+            <TextField fx:id="EM" layoutY="102.0" prefHeight="25.0" prefWidth="334.0" promptText="сообщение при неверном пароле" />
+            <TextField fx:id="QP" layoutY="77.0" prefHeight="25.0" prefWidth="334.0" promptText="параметры sql запроса(ч/з пробел)(%login% %password%)" />
+            <Label layoutX="6.0" layoutY="152.0" prefHeight="17.0" prefWidth="334.0" text="SELECT login FROM users WHERE login=? AND password=MD5(?) LIMIT 1">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <TextField fx:id="DP" layoutX="185.0" layoutY="2.0" prefHeight="25.0" prefWidth="149.0" promptText="порт бд" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="126.0" text="AuthProvider:" />
+      <Label layoutX="466.0" layoutY="18.0" text="AuthHandler:" />
+      <ChoiceBox fx:id="select1" layoutX="544.0" layoutY="14.0" prefWidth="150.0" />
+      <Label fx:id="desc1" layoutX="466.0" layoutY="56.0" prefHeight="17.0" prefWidth="334.0" text="Описания">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="mys1" layoutX="445.0" layoutY="161.0" prefHeight="169.0" prefWidth="334.0">
+         <children>
+            <TextField fx:id="DN1" layoutY="14.0" prefHeight="25.0" prefWidth="149.0" promptText="Имя базы даных(бд)" />
+            <TextField fx:id="DP1" layoutX="159.0" layoutY="14.0" prefHeight="25.0" prefWidth="162.0" promptText="порт бд" />
+            <TextField fx:id="DU1" layoutY="39.0" promptText="пользователь бд" />
+            <TextField fx:id="DIP1" layoutY="64.0" promptText="ип адрес дб" />
+            <TextField fx:id="PU1" layoutX="159.0" layoutY="40.0" prefHeight="25.0" prefWidth="162.0" promptText="пароль пользователя" />
+            <TextField fx:id="table" layoutX="159.0" layoutY="64.0" prefHeight="25.0" prefWidth="162.0" promptText="таблица" />
+            <TextField fx:id="UC" layoutY="89.0" promptText="название столбца с uuid" />
+            <TextField fx:id="ATC" layoutY="114.0" promptText="с Token(accessToken)" />
+            <TextField fx:id="UNC" layoutX="159.0" layoutY="89.0" prefHeight="25.0" prefWidth="162.0" promptText="с именами пользователей" />
+            <TextField fx:id="SidC" layoutX="159.0" layoutY="114.0" prefHeight="25.0" prefWidth="162.0" promptText="с serverID(serverID)" />
+         </children>
+      </AnchorPane>
+      <TextField fx:id="SU" layoutX="14.0" layoutY="442.0" prefHeight="25.0" prefWidth="249.0" promptText="Путь к скинам(URL)" />
+      <TextField fx:id="CU" layoutX="14.0" layoutY="467.0" prefHeight="25.0" prefWidth="249.0" promptText="Путь к плащам(URL)" />
+      <Label layoutX="73.0" layoutY="425.0" text="Выдача скинов/плащей" />
+      <Label layoutX="14.0" layoutY="492.0" prefHeight="17.0" prefWidth="249.0" text="Параметры:%username%,%uuid%" />
+      <Label layoutX="14.0" layoutY="509.0" prefHeight="17.0" prefWidth="249.0" text="http://example.com/skins/%username%.png" />
+   </children>
+</AnchorPane>

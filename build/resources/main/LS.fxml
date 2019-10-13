@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.SerStarStory.LSController">
+   <children>
+      <TextField fx:id="PN" layoutX="14.0" layoutY="28.0" prefHeight="25.0" prefWidth="277.0" promptText="Имя проекта" />
+      <TextField fx:id="BN" layoutX="14.0" layoutY="79.0" prefHeight="25.0" prefWidth="277.0" promptText="Название выходных jar и exe" />
+      <TextField fx:id="WLE" layoutX="14.0" layoutY="128.0" prefHeight="25.0" prefWidth="277.0" promptText="Ошибка, когда человека нет в белом списке" />
+      <TextField fx:id="SS" layoutX="14.0" layoutY="180.0" prefHeight="25.0" prefWidth="277.0" promptText="Скрипт, выполняющийся при команде restart" />
+      <CheckBox fx:id="CJE" layoutX="14.0" layoutY="223.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="277.0" selected="true" text="Копировать jar и exe в updates?" />
+      <CheckBox fx:id="GMPG" layoutX="14.0" layoutY="254.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="277.0" selected="true" text="Генерация маппингов ProGuard" />
+      <CheckBox fx:id="WJV" layoutX="14.0" layoutY="283.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="277.0" selected="true" text="Предупреждения о неверной разрядности Java">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="OPG" layoutX="14.0" layoutY="312.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="277.0" selected="true" text="Включение обфускатора ProGuard" />
+      <CheckBox fx:id="ASM" layoutX="14.0" layoutY="341.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="277.0" selected="true" text="С помощью ASM убирать номера строк" />
+      <CheckBox fx:id="DTF" layoutX="14.0" layoutY="366.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="277.0" selected="true" text="Удаление временных файлов" />
+      <CheckBox fx:id="ALBPG" layoutX="14.0" layoutY="395.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="277.0" text="Присоеденять библиотеки до обработки ProGuard, а не после">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="CWL" layoutX="14.0" layoutY="421.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="277.0" selected="true" text="Компресировать размер лаунчера" />
+      <TextField layoutX="346.0" layoutY="28.0" promptText="IP" />
+      <TextField fx:id="IP" layoutX="346.0" layoutY="28.0" promptText="IP адрес" />
+      <Button fx:id="next" layoutX="611.0" layoutY="480.0" mnemonicParsing="false" text="Далее" />
+      <CheckBox fx:id="CE" layoutX="14.0" layoutY="453.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="277.0" text="Сертификат" />
+      <CheckBox fx:id="L4J" layoutX="14.0" layoutY="484.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="277.0" selected="true" text="Использовать launch4j" />
+   </children>
+</AnchorPane>
