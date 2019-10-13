@@ -8,7 +8,7 @@ public class StartController {
         private Button LaunchServer;
 
         @FXML
-        public void initialize(){
+        public void initialize() {
                 LaunchServer.setOnMouseClicked(event -> {
                         Main.stage.getScene().setRoot(Main.LaunchServerPane);
                 });

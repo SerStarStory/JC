@@ -47,18 +47,18 @@ public class LSController {
         private CheckBox L4J;//launch4j
 
         @FXML
-        public void initialize(){
-                next.setOnMouseClicked(e->{
+        public void initialize() {
+                next.setOnMouseClicked(e -> {
 
-                        HashMap<String,Object> launcher=new HashMap<>();
-                        launcher.put("guardType","no");
-                        launcher.put("attachLibraryBeforeProGuard",ALBPG.isSelected());
-                        launcher.put("compress",CWL.isSelected());
-                        launcher.put("warningMissArchJava",WJV.isSelected());
-                        launcher.put("enabledProGuard",OPG.isSelected());
-                        launcher.put("stripLineNumbers",true);
-                        launcher.put("deleteTempFiles",DTF.isSelected());
-                        launcher.put("proguardGenMappings",GMPG.isSelected());
+                        HashMap<String, Object> launcher = new HashMap<>();
+                        launcher.put("guardType", "no");
+                        launcher.put("attachLibraryBeforeProGuard", ALBPG.isSelected());
+                        launcher.put("compress", CWL.isSelected());
+                        launcher.put("warningMissArchJava", WJV.isSelected());
+                        launcher.put("enabledProGuard", OPG.isSelected());
+                        launcher.put("stripLineNumbers", true);
+                        launcher.put("deleteTempFiles", DTF.isSelected());
+                        launcher.put("proguardGenMappings", GMPG.isSelected());
                         Main.manager.setLauncher(launcher);
                         Main.manager.setCertificate(CE.isSelected());
                         Main.manager.setStartScript(SS.getText());
@@ -68,7 +68,7 @@ public class LSController {
                         Main.manager.setWhitelistRejectString(WLE.getText());
                         Main.manager.setL4J(L4J.isSelected());
                         Main.stage.getScene().setRoot(Main.AuthHandler);
-                        ip=IP.getText();
+                        ip = IP.getText();
                 });
         }
 }

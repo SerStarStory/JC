@@ -15,7 +15,7 @@ import java.util.HashMap;
 
 
 public class AHController {
-        private String res,res1;
+        private String res, res1;
         @FXML
         private ChoiceBox<String> select;
         @FXML
@@ -76,16 +76,17 @@ public class AHController {
         private TextField SU;//skins url
         @FXML
         private TextField CU;//cloaks url
+
         @FXML
-        public void initialize(){
+        public void initialize() {
                 select.getItems().add("accept");
                 select.getItems().add("request");
                 select.getItems().add("mysql");
-                select1.getItems().addAll("mysql","memory");
-                select1.getSelectionModel().selectedItemProperty().addListener((e,a,v)->{
+                select1.getItems().addAll("mysql", "memory");
+                select1.getSelectionModel().selectedItemProperty().addListener((e, a, v) -> {
                         mys1.setVisible(false);
-                        res1=v;
-                        switch (v){
+                        res1 = v;
+                        switch (v) {
                                 case "memory":
                                         desc1.setText("UUID получается путем преобразования бинарного представления ника");
                                         break;
@@ -99,11 +100,11 @@ public class AHController {
                 req.setVisible(false);
                 mys.setVisible(false);
                 mys1.setVisible(false);
-                select.getSelectionModel().selectedItemProperty().addListener((e,a,v)->{
-                        res=v;
+                select.getSelectionModel().selectedItemProperty().addListener((e, a, v) -> {
+                        res = v;
                         req.setVisible(false);
                         mys.setVisible(false);
-                        switch (v){
+                        switch (v) {
                                 case "accept":
                                         desc.setText("Принимает любые пары логин-пароль.Настройка не требуется");
                                         break;
@@ -117,68 +118,68 @@ public class AHController {
                                         break;
                         }
                 });
-                next.setOnMouseClicked(e->{
-                        HashMap<String,Object> provider=new HashMap<>();
-                        switch (res){
+                next.setOnMouseClicked(e -> {
+                        HashMap<String, Object> provider = new HashMap<>();
+                        switch (res) {
                                 case "request":
-                                        provider.put("type","request");
-                                        provider.put("url",RU.getText());
-                                        provider.put("response",RM.getText());
+                                        provider.put("type", "request");
+                                        provider.put("url", RU.getText());
+                                        provider.put("response", RM.getText());
                                         break;
                                 case "accept":
-                                        provider.put("type","accept");
+                                        provider.put("type", "accept");
                                         break;
                                 case "mysql":
-                                        provider.put("type","mysql");
-                                        HashMap<String,Object> holder=new HashMap<>();
-                                        holder.put("address",DIP.getText());
-                                        holder.put("port",Integer.parseInt(DP.getText()));
-                                        holder.put("username",DU.getText());
-                                        holder.put("password",PU.getText());
-                                        holder.put("database",DN.getText()+"?serverTimezone=UTC");
-                                        holder.put("timezone","UTC");
-                                        provider.put("mySQLHolder",holder);
-                                        provider.put("query",DQ.getText());
-                                        provider.put("queryParams",QP.getText().split(" "));
-                                        provider.put("message",EM.getText());
+                                        provider.put("type", "mysql");
+                                        HashMap<String, Object> holder = new HashMap<>();
+                                        holder.put("address", DIP.getText());
+                                        holder.put("port", Integer.parseInt(DP.getText()));
+                                        holder.put("username", DU.getText());
+                                        holder.put("password", PU.getText());
+                                        holder.put("database", DN.getText() + "?serverTimezone=UTC");
+                                        holder.put("timezone", "UTC");
+                                        provider.put("mySQLHolder", holder);
+                                        provider.put("query", DQ.getText());
+                                        provider.put("queryParams", QP.getText().split(" "));
+                                        provider.put("message", EM.getText());
                                         break;
 
                         }
-                        HashMap<String,Object> handler =new HashMap<>();
-                        switch (res1){
+                        HashMap<String, Object> handler = new HashMap<>();
+                        switch (res1) {
                                 case "memory":
-                                        handler.put("type","memory");
+                                        handler.put("type", "memory");
                                         break;
                                 case "mysql":
-                                        handler.put("type","mysql");
-                                        HashMap<String,Object> holder=new HashMap<>();
-                                        holder.put("address",DIP1.getText());
-                                        holder.put("port",Integer.parseInt(DP1.getText()));
-                                        holder.put("username",DU1.getText());
-                                        holder.put("password",PU1.getText());
-                                        holder.put("database",DN1.getText()+"?serverTimezone=UTC");
-                                        holder.put("timezone","UTC");
-                                        handler.put("mySQLHolder",holder);
-                                        handler.put("table",table.getText());
-                                        handler.put("uuidColumn",UC.getText());
-                                        handler.put("usernameColumn",UNC.getText());
-                                        handler.put("accessTokenColumn",ATC.getText());
-                                        handler.put("serverIDColumn",SidC.getText());
+                                        handler.put("type", "mysql");
+                                        HashMap<String, Object> holder = new HashMap<>();
+                                        holder.put("address", DIP1.getText());
+                                        holder.put("port", Integer.parseInt(DP1.getText()));
+                                        holder.put("username", DU1.getText());
+                                        holder.put("password", PU1.getText());
+                                        holder.put("database", DN1.getText() + "?serverTimezone=UTC");
+                                        holder.put("timezone", "UTC");
+                                        handler.put("mySQLHolder", holder);
+                                        handler.put("table", table.getText());
+                                        handler.put("uuidColumn", UC.getText());
+                                        handler.put("usernameColumn", UNC.getText());
+                                        handler.put("accessTokenColumn", ATC.getText());
+                                        handler.put("serverIDColumn", SidC.getText());
                                         break;
                         }
-                        HashMap<String,Object> texture=new HashMap<>();
-                        texture.put("type","request");
-                        texture.put("skinURL",SU.getText());
-                        texture.put("cloakURL",CU.getText());
-                        Main.manager.addAuth("provider",provider);
-                        Main.manager.addAuth("handler",handler);
-                        Main.manager.addAuth("textureProvider",texture);
+                        HashMap<String, Object> texture = new HashMap<>();
+                        texture.put("type", "request");
+                        texture.put("skinURL", SU.getText());
+                        texture.put("cloakURL", CU.getText());
+                        Main.manager.addAuth("provider", provider);
+                        Main.manager.addAuth("handler", handler);
+                        Main.manager.addAuth("textureProvider", texture);
                         Main.manager.setNetty();
-                        Gson gson =new GsonBuilder().setPrettyPrinting().create();
-                        File file =new File("LaunchServer.json");
+                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                        File file = new File("LaunchServer.json");
                         try {
                                 file.createNewFile();
-                                Writer writer =new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
+                                Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
                                 writer.write(gson.toJson(Main.manager));
                                 writer.flush();
                         } catch (Throwable ex) {
@@ -186,8 +187,6 @@ public class AHController {
                         }
 
                 });
-
-
 
 
         }
