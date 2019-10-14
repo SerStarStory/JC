@@ -1,5 +1,7 @@
 package ua.serstarstory;
 
+import ua.serstarstory.controllers.LSController;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

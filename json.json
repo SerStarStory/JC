@@ -1,0 +1,108 @@
+{
+  "test": ["A","B",true,false],
+  "startScript": "v",
+  "projectName": "a",
+  "whitelistRejectString": "c",
+  "binaryName": "x",
+  "env": "STD",
+  "copyBinaries": true,
+  "launcher": {
+    "deleteTempFiles": true,
+    "stripLineNumbers": true,
+    "compress": true,
+    "warningMissArchJava": true,
+    "proguardGenMappings": true,
+    "enabledProGuard": true,
+    "attachLibraryBeforeProGuard": false,
+    "guardType": "no"
+  },
+  "certificate": {
+    "enabled": false
+  },
+  "mirrors": [
+    "https://mirror.gravit.pro/"
+  ],
+  "auth": [
+    {
+      "handler": {
+        "type": "memory"
+      },
+      "isDefault": true,
+      "textureProvider": {
+        "cloakURL": "a",
+        "type": "request",
+        "skinURL": "a"
+      },
+      "provider": {
+        "type": "accept"
+      },
+      "displayName": "Default",
+      "name": "std"
+    }
+  ],
+  "protectHandler": {
+    "type": "std"
+  },
+  "permissionsHandler": {
+    "filename": "permissions.json",
+    "type": "json"
+  },
+  "hwidHandler": {
+    "type": "accept"
+  },
+  "components": {
+    "regLimiter": {
+      "rateLimit": 3,
+      "excludeIps": [],
+      "rateLimitMillis": 36000000,
+      "exclude": [],
+      "message": "Превышен лимит регистраций",
+      "type": "regLimiter"
+    },
+    "authLimiter": {
+      "rateLimit": 3,
+      "rateLimitMillis": 8000,
+      "exclude": [],
+      "message": "Превышен лимит авторизаций",
+      "type": "authLimiter"
+    }
+  },
+  "netty": {
+    "binds": [
+      {
+        "address": "0.0.0.0",
+        "port": 9274
+      }
+    ],
+    "launcherURL": "http://127.0.0.1:9274/Launcher.jar",
+    "address": "ws://127.0.0.1:9274/api",
+    "performance": {
+      "bossThread": 2,
+      "workerThread": 8,
+      "usingEpoll": false
+    },
+    "logLevel": "DEBUG",
+    "fileServerEnabled": true,
+    "ipForwarding": false,
+    "showHiddenFiles": false,
+    "bindings": [],
+    "downloadURL": "http://127.0.0.1:9274/%dirname%/",
+    "launcherEXEURL": "http://127.0.0.1:9274/Launcher.exe",
+    "sendExceptionEnabled": true
+  },
+  "launch4j": {
+    "copyright": "© a",
+    "setMaxVersion": false,
+    "alternative": "no",
+    "productVer": "1.0",
+    "trademarks": "This product is licensed under GPLv3",
+    "fileDesc": "a Launcher",
+    "productName": "a",
+    "fileVer": "1.0",
+    "internalName": "Launcher",
+    "enable": true,
+    "txtFileVersion": "%s, build %d",
+    "maxVersion": "1.8.999",
+    "txtProductVersion": "%s, build %d"
+  }
+}

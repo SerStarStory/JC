@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.SerStarStory.AHController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.serstarstory.controllers.AHController">
    <children>
       <ChoiceBox fx:id="select" layoutX="158.0" layoutY="14.0" prefHeight="25.0" prefWidth="192.0" />
       <Label fx:id="desc" layoutX="14.0" layoutY="56.0" prefHeight="17.0" prefWidth="451.0" text="Описания">

@@ -1,4 +1,4 @@
-package ua.serstarstory;
+package ua.serstarstory.controllers;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -8,6 +8,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import ua.serstarstory.Main;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
