@@ -188,8 +188,9 @@ public class Json {
         private void end() {
                 try {
                         FileWriter writer = new FileWriter(file);
-                        JsonWriter jsonWriter = new JsonWriter(writer);
-                        gson.toJson(json, jsonWriter);
+                       
+                        writer.write(gson.toJson(json));
+                        writer.flush();
                 } catch (IOException e) {
                         e.printStackTrace();
                 }
