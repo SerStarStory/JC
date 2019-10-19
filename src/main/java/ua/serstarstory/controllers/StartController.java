@@ -6,7 +6,6 @@ import com.google.gson.JsonObject;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import ua.serstarstory.Json;
 import ua.serstarstory.Main;
 
 import java.io.File;
@@ -31,7 +30,7 @@ public class StartController {
                                 File file = new File(path.getText());
                                 FileReader reader = new FileReader(file);
                                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                                new Json(gson.fromJson(reader, JsonObject.class), file);
+
                         } catch (FileNotFoundException ex) {
                                 ex.printStackTrace();
                         }
