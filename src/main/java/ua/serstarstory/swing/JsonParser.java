@@ -1,14 +1,13 @@
 package ua.serstarstory.swing;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,6 +58,7 @@ public class JsonParser {
         private void parsePrimitive(String key, JsonPrimitive element, JPanel panel) {
                 Component component = null;
                 JLabel label = new JLabel(key);
+                Val val=new Val(element);
                 if (element.isBoolean()) {
                         JCheckBox box = new JCheckBox();
                         box.setSelected(element.getAsBoolean());
@@ -66,12 +66,33 @@ public class JsonParser {
                         box.addActionListener(l -> {
                                 if (map.get(panel).isJsonObject()) {
                                         ((JsonObject) map.get(panel)).add(key, new JsonPrimitive(box.isSelected()));
+                                }else if(map.get(panel).isJsonArray()){
+                                        JsonArray array= (JsonArray) map.get(panel);
+                                        array.remove(val.getVal());
+                                        array.add(box.isSelected());
+                                        val.setVal(new JsonPrimitive(box.isSelected()));
                                 }
                         });
                         component = box;
                 } else {
                         JTextField field = new JTextField();
                         field.setText(element.getAsString());
+                        field.addActionListener(l->{
+                                JsonPrimitive value=null;
+                                try {
+                                        value=new JsonPrimitive(Integer.parseInt(field.getText()));
+                                }catch (NumberFormatException e){
+                                        value=new JsonPrimitive(field.getText());
+                                }
+                                if(map.get(panel).isJsonObject()){
+                                        ((JsonObject) map.get(panel)).add(key,value);
+                                }else if(map.get(panel).isJsonArray()){
+                                        JsonArray array= (JsonArray) map.get(panel);
+                                        array.remove(val.getVal());
+                                        val.setVal(value);
+                                        array.add(val.getVal());
+                                }
+                        });
                         component = field;
                 }
                 panel.add(label);
@@ -92,9 +113,36 @@ public class JsonParser {
                 button.addActionListener(l -> {
                         setPane(panel);
                 });
-
+                b.addActionListener(l->{
+                        end();
+                        setPane(panel);
+                });
                 SManager.jFrame.getEditPanel().add(button);
                 SManager.jFrame.getEditPanel().add(b);
                 SManager.jFrame.pack();
+        }
+        private void end(){
+                try {
+                        FileWriter writer=new FileWriter(file);
+                        writer.write(SManager.gson.toJson(json));
+                        writer.flush();
+                } catch (IOException e) {
+                        e.printStackTrace();
+                }
+
+        }
+}
+class Val{
+        private JsonPrimitive val;
+        public Val(JsonPrimitive v){
+                val=v;
+        }
+
+        public void setVal(JsonPrimitive val) {
+                this.val = val;
+        }
+
+        public JsonPrimitive getVal() {
+                return val;
         }
 }
