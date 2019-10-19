@@ -3,10 +3,14 @@ package ua.serstarstory;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.application.Application;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
@@ -31,8 +35,5 @@ public class Main extends Application {
                 primaryStage.setScene(new Scene(StartPane, 800, 600));
                 primaryStage.setTitle("Gravit Launcher Configurator");
                 primaryStage.show();
-                /*File file=new File("json.json");
-                FileReader reader=new FileReader(file);
-                Json json=new Json(gson.fromJson(reader, JsonObject.class));*/
         }
 }

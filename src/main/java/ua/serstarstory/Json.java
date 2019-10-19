@@ -1,7 +1,6 @@
 package ua.serstarstory;
 
 import com.google.gson.*;
-import com.google.gson.stream.JsonWriter;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -72,7 +71,7 @@ public class Json {
         private void parsePrimitive(String k, JsonPrimitive o, AnchorPane p) {
                 AnchorPane a = new AnchorPane();
                 Label l = new Label(k + ":");
-                if (k == "") l.setText("Array:");
+                if (k.equals("")) l.setText("FromArray:");
                 Val val = new Val(o);
                 if (!o.isBoolean()) {
                         TextField field = new TextField();
@@ -83,7 +82,6 @@ public class Json {
                         field.setOnKeyReleased(e -> {
                                 if (objects.containsKey(p)) {
                                         JsonPrimitive v;
-                                        JsonObject j = objects.get(p);
                                         try {
                                                 int b = Integer.parseInt(field.getText());
                                                 v = new JsonPrimitive(b);
@@ -180,6 +178,7 @@ public class Json {
         }
 
         private void addButton(String k, AnchorPane panel, AnchorPane p) {
+                if(k.equals(""))k="FromArray";
                 Button button = new Button(k);
                 button.setOnAction(e -> setPane(panel));
                 add(button, p);
@@ -188,11 +187,12 @@ public class Json {
         private void end() {
                 try {
                         FileWriter writer = new FileWriter(file);
-                        JsonWriter jsonWriter = new JsonWriter(writer);
-                        gson.toJson(json, jsonWriter);
+                        writer.write(gson.toJson(json));
+                        writer.flush();
                 } catch (IOException e) {
                         e.printStackTrace();
                 }
+                System.gc();
         }
 
 

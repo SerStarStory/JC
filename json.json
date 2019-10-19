@@ -1,9 +1,14 @@
 {
-  "test": ["A","B",true,false],
+  "test": [
+    true,
+    false,
+    "ASDd",
+    "Bdddsdasd"
+  ],
   "startScript": "v",
   "projectName": "a",
   "whitelistRejectString": "c",
-  "binaryName": "x",
+  "binaryName": "xsd",
   "env": "STD",
   "copyBinaries": true,
   "launcher": {
