@@ -38,7 +38,7 @@ public class JsonParser {
 
         private void start() {
                 SManager.jFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-                listener=new WindowListener() {
+                listener = new WindowListener() {
                         @Override
                         public void windowOpened(WindowEvent e) {
 
@@ -108,7 +108,7 @@ public class JsonParser {
                 if (element.isJsonPrimitive()) {
                         parsePrimitive(key, (JsonPrimitive) element, panel);
                 }
-                if(element.isJsonArray()){
+                if (element.isJsonArray()) {
                         parseArray(key, (JsonArray) element, panel);
                 }
         }
@@ -121,10 +121,10 @@ public class JsonParser {
                         setPane(panel);
                 });
                 SManager.jFrame.pack();
-                int i=0;
+                int i = 0;
                 map.put(panel, array);
                 for (JsonElement e : array) {
-                        check("FromArray_"+i++, e, panel);
+                        check("FromArray_" + i++, e, panel);
                 }
         }
 
